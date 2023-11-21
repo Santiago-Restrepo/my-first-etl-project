@@ -1,7 +1,19 @@
 import data_loaders
+import transformers
 import pdb
+from sqlalchemy import create_engine
 
-offerings = data_loaders.load_offerings()
-reviews = data_loaders.load_reviews()
+# Database definition
+engine = create_engine(
+    'postgresql://postgres:postgres123@localhost:5434/postgres')
 
-pdb.set_trace()
+# Data Loading
+initial_data = {
+    'offerings': data_loaders.load_offerings(),
+    'reviews': data_loaders.load_reviews()
+}
+
+# Data Transorming
+
+df = transformers.transform_data(**initial_data)
+# Data exporting
