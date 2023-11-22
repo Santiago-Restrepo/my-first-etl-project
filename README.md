@@ -6,6 +6,7 @@ This is my first ETL (Extract, Transform, Load) project, where I am building a d
 
 - [Installation](#installation)
 - [Database Setup](#database-setup)
+- [Setting Up Datasets](#setting-up-datasets)
 - [Running the Project](#running-the-project)
 
 ## Installation
@@ -14,39 +15,41 @@ To get started with the project, follow these steps:
 
 1. Clone the repository to your local machine:
 
-    ```bash
-    git clone https://github.com/Santiago-Restrepo/my-first-etl-project.git
-    ```
+   ```bash
+   git clone https://github.com/Santiago-Restrepo/my-first-etl-project.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd my-first-etl-project
-    ```
+   ```bash
+   cd my-first-etl-project
+   ```
 
 3. Create a virtual environment using `venv`:
 
-    ```bash
-    python3 -m venv venv
-    ```
+   ```bash
+   python3 -m venv venv
+   ```
 
 4. Activate the virtual environment:
 
-    On Windows:
-    ```bash
-    .\venv\Scripts\activate
-    ```
+   On Windows:
 
-    On macOS/Linux:
-    ```bash
-    source venv/bin/activate
-    ```
+   ```bash
+   .\venv\Scripts\activate
+   ```
+
+   On macOS/Linux:
+
+   ```bash
+   source venv/bin/activate
+   ```
 
 5. Install project dependencies:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Database Setup
 
@@ -56,18 +59,35 @@ For the project, I use Docker and Docker Compose to set up the PostgreSQL databa
 
 2. In the project directory, create a `.env` file with the following database configuration:
 
-    ```env
-    POSTGRES_USER=postgres
-    POSTGRES_PASSWORD=postgres123
-    POSTGRES_DB=mydatabase
-    POSTGRES_PORT=5434
-    ```
+   ```env
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=postgres123
+   POSTGRES_DB=mydatabase
+   POSTGRES_PORT=5434
+   ```
 
 3. Run the PostgreSQL database using Docker Compose:
 
-    ```bash
-    docker-compose up -d
-    ```
+   ```bash
+   docker-compose up -d
+   ```
+
+## Setting Up Datasets
+
+Before running this project, you'll need to create a `datasets` folder and place the necessary CSV files from the Kaggle dataset inside it. Follow these steps:
+
+1. Create a `datasets` folder in the root directory of the project:
+
+   ```bash
+   mkdir datasets
+   ```
+
+2. Download the following CSV files from the [Kaggle dataset](https://www.kaggle.com/datasets/joebeachcapital/hotel-reviews?select=reviews.csv):
+
+   - `reviews.csv`
+   - `offerings.csv`
+
+3. Place the downloaded CSV files into the `datasets` folder.
 
 ## Running the Project
 
@@ -77,12 +97,14 @@ Now that the database is set up, you can run the ETL project:
 
 2. Execute the main script:
 
-    ```bash
-    python main.py
-    ```
+   ```bash
+   python main.py
+   ```
 
 This will start the ETL process and populate the PostgreSQL database with the extracted and transformed data.
 
 Feel free to explore the code in the `main.py` and other relevant files for more details on the ETL process.
 
-Happy ninja coding!
+---
+
+🥷 Happy ninja coding!
