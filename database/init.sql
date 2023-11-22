@@ -4,17 +4,17 @@ CREATE TABLE "location" (
 );
 
 CREATE TABLE "author" (
-  "id" integer PRIMARY KEY,
+  "id" varchar PRIMARY KEY,
   "num_reviews" integer,
+  "username" varchar,
   "location_id" integer
 );
 
 CREATE TABLE "review" (
   "id" integer PRIMARY KEY,
   "rating_id" integer,
-  "author_id" integer,
+  "author_id" varchar,
   "text" text,
-  "date_stayed" integer,
   "date" date,
   "hotel_id" integer
 );
@@ -42,7 +42,7 @@ CREATE TABLE "address" (
   "id" integer PRIMARY KEY,
   "region" varchar,
   "street_address" varchar,
-  "postal_code" integer,
+  "postal_code" varchar,
   "locality" varchar
 );
 
