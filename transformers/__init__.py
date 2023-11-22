@@ -1,5 +1,4 @@
 import pandas as pd
-import pdb
 import ast
 
 
@@ -9,8 +8,7 @@ def transform_data(**kwargs):
     locations = get_locations(authors)
     hotels = get_hotels(**kwargs, addresses=addresses)
     ratings = get_ratings(**kwargs)
-    reviews = get_reviews(**kwargs, ratings=ratings,
-                          hotels=hotels, authors=authors)
+    reviews = get_reviews(**kwargs, ratings=ratings, authors=authors)
 
     # Merge authors and locations
     merged_authors = pd.merge(authors, locations, left_on='location',
@@ -83,7 +81,7 @@ def get_locations(authors):
     return locations
 
 
-def get_reviews(ratings, hotels, authors, **kwargs):
+def get_reviews(ratings, authors, **kwargs):
     reviews = kwargs["reviews"]
     reviews = reviews.loc[:, ['id', 'text', 'date', 'offering_id']]
     reviews = reviews.rename(columns={'offering_id': 'hotel_id'})

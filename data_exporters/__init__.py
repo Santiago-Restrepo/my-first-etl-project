@@ -1,11 +1,22 @@
 import pandas as pd
 from sqlalchemy import create_engine, MetaData
-import pdb
 from sqlalchemy.dialects.postgresql import insert
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get environment variables
+postgres_user = os.getenv("POSTGRES_USER")
+postgres_password = os.getenv("POSTGRES_PASSWORD")
+postgres_db = os.getenv("POSTGRES_DB")
+postgres_port = os.getenv("POSTGRES_PORT")
 
 # Database definition
 engine = create_engine(
-    'postgresql://postgres:postgres123@localhost:5434/postgres')
+    f'postgresql://{postgres_user}:{postgres_password}@localhost:{postgres_port}/{postgres_db}'
+)
 
 
 def export_to_sql(data):
